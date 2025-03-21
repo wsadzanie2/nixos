@@ -98,11 +98,14 @@
   programs.firefox.enable = true;
 
   # Install MY STUFF
-  programs.fish.enable = true;
-  programs.hyprland.enable = true;
-  programs.neovim = {
-     enable = true;
-     defaultEditor = true;
+  programs = {
+    fish.enable = true;
+    hyprland.enable = true;
+    neovim = {
+       enable = true;
+       defaultEditor = true;
+  };
+
   };
 
   # Allow unfree packages
