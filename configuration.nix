@@ -101,11 +101,29 @@
   programs = {
     fish.enable = true;
     hyprland.enable = true;
+    git = {
+      enable = true;
+      config = {
+        user.name = "wsadzanie2";
+        user.ename = "pawlito2007@gmail.com";
+      };
+      # userName = "wsadzanie2";
+      # userEmail = "pawlito2007@gmail.com";
+    };
     neovim = {
        enable = true;
        defaultEditor = true;
+    };
   };
 
+  # Clean the boot loader (I added that too)
+  nix = {
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 
   # Allow unfree packages
@@ -117,20 +135,35 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     neovim
     wget
-    git
     fish
     cmatrix
     neofetch
     kitty
+    stow
+    superTuxKart
+    gcc
+    nodejs
+    eza
+    starship
+    zoxide
+    fortune
+    lolcat
+    cowsay
+    gnumake
+    wl-clipboard
+    rustup
+    cargo
+    tree
+    lua
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # List services that you want to enable:
 
