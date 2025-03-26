@@ -79,8 +79,10 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-  services.xserver.libinput.touchpad.naturalScrolling = true;
+  # services.xserver.libinput.enable = true;
+  # services.xserver.libinput.touchpad.naturalScrolling = true;
+  services.libinput.enable = true;
+  services.libinput.touchpad.naturalScrolling = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pawel = {
@@ -113,6 +115,13 @@
     neovim = {
        enable = true;
        defaultEditor = true;
+    };
+  };
+
+  # MY SERVICES
+  services = {
+    ollama = {
+    enable = true;
     };
   };
 
@@ -155,7 +164,18 @@
     cargo
     tree
     lua
+    luarocks
+    stylua
+    python3
+    krita
+    rofi-wayland
+    rofi-calc
+    ollama
+    pfetch
+    cmake
+    meson
   ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
