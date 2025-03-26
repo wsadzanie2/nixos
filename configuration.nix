@@ -121,7 +121,8 @@
   # MY SERVICES
   services = {
     ollama = {
-    enable = true;
+      enable = true;
+      # loadModels = [ "gemma3:4b" ];
     };
   };
 
@@ -138,42 +139,71 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # FONTS
+  fonts.packages = with pkgs; [
+    nerdfonts
+    lexend  
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    neovim
-    wget
-    fish
-    cmatrix
-    neofetch
-    kitty
-    stow
-    superTuxKart
-    gcc
-    nodejs
-    eza
-    starship
-    zoxide
-    fortune
-    lolcat
-    cowsay
-    gnumake
-    wl-clipboard
-    rustup
     cargo
-    tree
+    cmake
+    cmatrix
+    cowsay
+    eza
+    fish
+    fortune
+    gcc
+    gnumake
+    hyprpaper
+    hyprshot
+    killall
+    kitty
+    krita
+    lolcat
     lua
     luarocks
-    stylua
-    python3
-    krita
-    rofi-wayland
-    rofi-calc
-    ollama
-    pfetch
-    cmake
     meson
+    neofetch
+    neovide
+    neovim
+    nodejs
+    ollama
+    pass
+    pcmanfm
+    pfetch
+    python3
+    rofi-calc
+    rofi-emoji
+    rofi-wayland
+    rustup
+    starship
+    stow
+    stylua
+    superTuxKart
+    tree
+    unimatrix
+    unzip
+    vesktop
+    vim
+    waybar
+    wget
+    wl-clipboard
+    yazi
+    zip
+    zoxide
   ];
 
 
