@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
     ];
 
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -47,12 +48,12 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
+  services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm = {
     enable = true;
-    # theme = "catpuccin-mocha";
+    theme = "catppuccin-mocha";
     # package = pkgs.kdePackages.sddm;
   };
-  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -162,6 +163,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    (catppuccin-sddm.override {
+      flavor = "mocha";
+      font  = "Noto Sans";
+      fontSize = "9";
+      background = "${/home/pawel/Obrazy/wallpapers/0017.jpg}";
+      loginBackground = true;
+    }
+    )
+    brightnessctl
     cargo
     cmake
     cmatrix
@@ -183,12 +193,14 @@
     neofetch
     neovide
     neovim
+    networkmanagerapplet
     nodejs
     ollama
     pass
     pcmanfm
     pfetch
     python3
+    ripgrep
     rofi-calc
     rofi-emoji
     rofi-wayland
